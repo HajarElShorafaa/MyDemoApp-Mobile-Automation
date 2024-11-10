@@ -16,4 +16,6 @@ export default class Page {
         await element.waitForDisplayed(); // Wait for the element to be visible
         await element.click();            // Perform the click action
     }
+
+    
 }

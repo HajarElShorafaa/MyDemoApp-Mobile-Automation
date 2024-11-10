@@ -22,19 +22,16 @@ When('the user clicks the login button', async () => {
 });
 
 Then('the user should see the dashboard', async () => {
-    console.log();
     
     await expect(LoginPage.productPage).toBeDisplayed();
     await LoginPage.Logout();
 });
 
-Then('error should be displayed based on {string}', async (userType: keyof typeof LOGIN_USERS) => {
+Then('error should be displayed based on {string}', async (userType: keyof typeof LOGIN_USERS) => {4
+    await expect(LoginPage.errorMessage).toBeDisplayed();
     const userData=LOGIN_USERS[userType]
-    
     const errorMessageElement = await $('//android.widget.TextView[@text="'+userData.errorMessage+'"]')
-    //let error=LoginPage.ErrorMessage(message);
     await expect(errorMessageElement).toBeDisplayed();
-    
 });
 
 

@@ -23,7 +23,7 @@ export const config: WebdriverIO.Config = {
     capabilities: [{
         platformName: 'Android',
         'appium:deviceName': 'PixelX',
-        'appium:app':'./resouces/Android-MyDemoAppRN.1.3.0.build-244.apk',
+        'appium:app':'D:/mydemo/resources/Android-MyDemoAppRN.1.3.0.build-244.apk',
         'appium:automationName': 'UiAutomator2'
     },
     // {

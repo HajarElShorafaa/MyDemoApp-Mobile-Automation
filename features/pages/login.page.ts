@@ -1,4 +1,4 @@
-import { $ } from '@wdio/globals'
+import { $, expect } from '@wdio/globals'
 import Page from './page';
 
 class LoginPage extends Page {
@@ -12,13 +12,12 @@ class LoginPage extends Page {
     public get LogoutScreen(){
         return $('~menu item log out');
     }
-    public get LogoutBtn()
-    {
-        return $('//android.widget.Button[@resource-id="android:id/button1"]');
-    }
+    public get LogoutBtn(){
+        return $('//android.widget.Button[@resource-id="android:id/button1"]');}
+
     public get OkBtn(){
-        return $('//android.widget.Button[@resource-id="android:id/button1"]');
-    }
+        return $('//android.widget.Button[@resource-id="android:id/button1"]');}
+
     public get inputUsername () {
         return $('~Username input field'); }
 
@@ -29,8 +28,10 @@ class LoginPage extends Page {
         return $('~Login button'); }
 
     public get productPage() { 
-        return $('//android.widget.TextView[@text="Products"]'); 
-    }
+        return $('~products screen'); }
+
+    public get errorMessage(){
+        return $('~generic-error-message');}
 
     public async login (username: string, password: string) {
         await this.setValue(this.inputUsername,username);
@@ -39,7 +40,7 @@ class LoginPage extends Page {
         await this.clickButton(this.LoginBtn);
     }
     public async openLoginPage () {
-
+        await this.clickButton(this.menuIcon);
         await this.clickButton(this.LoginScreen);
     }
 
@@ -49,6 +50,13 @@ class LoginPage extends Page {
         await this.clickButton(this.LogoutScreen);
         await this.clickButton(this.LogoutBtn);
         await this.clickButton(this.OkBtn);        
+    }
+    public async errorMessageText(expectedText)
+    {
+        const textElement=await this.errorMessage.$$();
+        const actualText= await textElement.getText();
+        console.log("This is actual Text ---> "+actualText);
+        expect(actualText).toBe(expectedText, "Expected text to be "+expectedText+" but found "+actualText)
     }
 }
 
