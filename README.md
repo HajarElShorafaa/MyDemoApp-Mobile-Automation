@@ -27,3 +27,8 @@ npx wdio wdio.conf.js
  
 ## to open the Allure report by running
 npm run report:open
+
+
+Video Recording
+You can find a video recording of the successful test runs in the issues or you can access it from this link: https://www.awesomescreenshot.com/video/33458462?key=a1acc933bd0ce034ff6e7c2473c7a923.
+
