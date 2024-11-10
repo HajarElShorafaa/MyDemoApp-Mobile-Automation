@@ -29,6 +29,6 @@ npx wdio wdio.conf.js
 npm run report:open
 
 
-Video Recording
+ [Video Recording](#video-recording)
 You can find a video recording of the successful test runs in the issues or you can access it from this link: https://www.awesomescreenshot.com/video/33458462?key=a1acc933bd0ce034ff6e7c2473c7a923.
 
