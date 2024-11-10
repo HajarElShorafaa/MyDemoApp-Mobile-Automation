@@ -1,19 +1,29 @@
 # Mobile Automation Test for Login Feature in MyDemoApp
-
-## Setup
+ 
+This project contains test automation scripts for the **MyDemo** mobile application, built using Appium and WebdriverIO. The goal of this project is to automate the login functionality for Android and iOS versions of the MyDemo app. The project is designed to support positive and negative test scenarios and is structured following the Page Object Model and BDD with Cucumber.
+ 
+---
+ 
+## Project Setup
+ 
+### Cloning the Project
+ 
+To set up this project locally, start by cloning the repository from GitHub. You can use the following command:
+ 
+```bash
+git clone https://github.com/HajarElShorafaa/MyDemoApp-Mobile-Automation
+ 
+## Install Setup
 1. Install dependencies: `npm install`
 2. Start Appium server: `appium`
 3. Update device capabilities in `wdio.conf.js` for iOS and Android testing.
-
+ 
 note: this project has been run on android device only (due to inaccessibility to mac device)
-
+ 
 ## Run Tests
 Run tests using WebdriverIO:
 ```bash
 npx wdio wdio.conf.js
-
-
-## To open the Allure report by running
+ 
+## to open the Allure report by running
 npm run report:open
-
-
