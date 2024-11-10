@@ -12,6 +12,7 @@ export default class Page {
         await element.setValue(value); // Set the new value
     }
 
+    // click on button
     async clickButton(element) {
         await element.waitForDisplayed(); // Wait for the element to be visible
         await element.click();            // Perform the click action

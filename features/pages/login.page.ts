@@ -3,13 +3,15 @@ import Page from './page';
 
 class LoginPage extends Page {
 
+    //locators
+
     public get menuIcon(){
         return $('~open menu'); }
 
-    public get LoginScreen(){
+    public get loginMenuItem(){
         return $('~menu item log in');
     }
-    public get LogoutScreen(){
+    public get logoutMenuItem(){
         return $('~menu item log out');
     }
     public get LogoutBtn(){
@@ -33,30 +35,29 @@ class LoginPage extends Page {
     public get errorMessage(){
         return $('~generic-error-message');}
 
-    public async login (username: string, password: string) {
+    // method to enter user credentials to login
+    public async login (username: string, password: string) 
+    {
         await this.setValue(this.inputUsername,username);
         await this.setValue(this.inputPassword,password);
         console.log("Username: "+username+" and password: "+password+ "are entered.");
         await this.clickButton(this.LoginBtn);
     }
-    public async openLoginPage () {
+
+    // method to open the login screen again
+    public async openLoginPage () 
+    {
         await this.clickButton(this.menuIcon);
-        await this.clickButton(this.LoginScreen);
+        await this.clickButton(this.loginMenuItem);
     }
 
+    // method to logout the user
     public async Logout()
     {
         await this.clickButton(this.menuIcon);
-        await this.clickButton(this.LogoutScreen);
+        await this.clickButton(this.logoutMenuItem);
         await this.clickButton(this.LogoutBtn);
         await this.clickButton(this.OkBtn);        
-    }
-    public async errorMessageText(expectedText)
-    {
-        const textElement=await this.errorMessage.$$();
-        const actualText= await textElement.getText();
-        console.log("This is actual Text ---> "+actualText);
-        expect(actualText).toBe(expectedText, "Expected text to be "+expectedText+" but found "+actualText)
     }
 }
 
