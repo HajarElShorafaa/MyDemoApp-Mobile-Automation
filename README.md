@@ -13,7 +13,7 @@ Run tests using WebdriverIO:
 npx wdio wdio.conf.js
 
 
-## to open the Allure report by running
+## To open the Allure report by running
 npm run report:open
 
 
